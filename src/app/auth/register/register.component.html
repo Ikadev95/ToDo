@@ -4,50 +4,54 @@
       <img src="intro.jpg" width="100%">
     </div>
 
-<div class="col mt-4 form">
-  <a routerLink="" class="back-link">
-    <mat-icon>arrow_back</mat-icon> torna al login
-  </a>
+    <div class="col mt-4 form">
+      <a routerLink="" class="back-link">
+        <mat-icon>arrow_back</mat-icon> torna al login
+      </a>
 
-  <form>
+      <form [formGroup]="form" (ngSubmit)="register()">
 
-    <h1>Registrazione</h1>
+        <h1>Registrazione</h1>
 
-    <div class="nameWrapper">
+        <div class="nameWrapper">
+          <!-- Campo Nome -->
+          <mat-form-field appearance="outline">
+            <mat-label for="name">Nome</mat-label>
+            <input matInput id="name" formControlName="name" required>
+            <mat-error *ngIf="isInValidTouched('name')">Devi inserire il nome</mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label for="name">Nome</mat-label>
-        <input matInput id= "nome" name="nome" required>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+          <!-- Campo Cognome -->
+          <mat-form-field appearance="outline">
+            <mat-label for="surname">Cognome</mat-label>
+            <input matInput id="surname" formControlName="surname" required>
+            <mat-error *ngIf="isInValidTouched('surname')">Devi inserire il cognome</mat-error>
+          </mat-form-field>
+        </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label for="surname">Cognome</mat-label>
-        <input matInput id= "nsurome" name="surnome" required>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+        <!-- Campo Email -->
+        <mat-form-field appearance="outline">
+          <mat-label for="email">E-mail</mat-label>
+          <input matInput id="email" formControlName="email" required>
+          <mat-error *ngIf="isInValidTouched('email')">Inserisci una email valida</mat-error>
+        </mat-form-field>
+
+        <!-- Campo Password -->
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Password</mat-label>
+          <input matInput id="password" formControlName="password" required type="password">
+          <mat-error *ngIf="isInValidTouched('password')">Devi inserire una password</mat-error>
+        </mat-form-field>
+
+        <!-- Pulsante Submit -->
+        <button mat-flat-button type="submit" [disabled]="form.invalid">Registrati</button>
+
+      </form>
+
+      <div class="success" *ngIf="registerok">
+        <p>La registrazione è andata a buon fine!</p> <mat-icon class="check">check_circle</mat-icon>
+      </div>
 
     </div>
-
-
-
-    <mat-form-field appearance="outline" >
-    <mat-label for="mail">E-mail</mat-label>
-    <input matInput id= "mail" name="mail" required>
-    <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-    <mat-label for="password">Password</mat-label>
-    <input  matInput id= "password" name="password" required>
-    <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-
-    <button mat-flat-button type="submit">Registrati</button>
-
-  </form>
-
-</div>
-
   </div>
 </main>

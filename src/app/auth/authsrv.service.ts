@@ -2,7 +2,7 @@ import { iUser } from './i-user';
 import { Injectable } from '@angular/core';
 import { JwtHelperService} from '@auth0/angular-jwt';
 import { environment } from '../../environments/environment.development';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, map, tap } from 'rxjs';
 import { iAccessdata } from './i-accessdata';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -13,14 +13,21 @@ import { iLoginRequest } from './i-login-request';
 })
 export class AuthsrvService {
 
-  jwtHelper:JwtHelperService = new JwtHelperService()
+  private jwtHelper:JwtHelperService = new JwtHelperService()
 
   registerUrl:string = environment.registerUrl
   loginUrl:string = environment.loginUrl
   autoLogoutTimer:any
 
-  authSubject$ = new BehaviorSubject<iAccessdata | null>(null)
+  private authSubject$ = new BehaviorSubject<iAccessdata | null>(null)
   //subject in cui ho i dati utente che mi arrivano dal server
+
+  //per avere solo user senza access data
+  //qui escono i dati solo dopo la trasformazione tramite pipe
+  user$ = this.authSubject$.asObservable().pipe(map(accessData => accessData?.user))
+
+  // !! serve per convertire in boolean
+  isLoggedIn$ = this.authSubject$.pipe(map(accessData => !!accessData))
 
   constructor(private http:HttpClient, private router:Router) {
     this.restoreUser()

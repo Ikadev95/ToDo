@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "email": "fegughi@gmail.com",
+      "password": "$2a$10$nFgbNxLShDhPRHFILnxPWebGr2Xtk4q3DeObg7697IoyOWjFwL9Ty",
+      "name": "Federica",
+      "surname": "Guglielmo",
+      "id": 1
+    }
+  ]
+}
