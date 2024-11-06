@@ -60,3 +60,20 @@ button{
   }
 
 }
+.failed{
+  padding: 16px 24px;
+  margin-top: 24px;
+  background-color:  #fdf5f5;
+  width: 450px;
+  border-radius: 16px;
+  box-shadow: 4px 4px 20px rgba(115, 115, 115, 0.22);
+  display: flex;
+  justify-content: space-between;
+  p{
+    margin: 0;
+  }
+  .check {
+    color: #af4c4c;
+  }
+
+}

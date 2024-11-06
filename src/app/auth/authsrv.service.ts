@@ -19,7 +19,7 @@ export class AuthsrvService {
   loginUrl:string = environment.loginUrl
   autoLogoutTimer:any
 
-  private authSubject$ = new BehaviorSubject<iAccessdata | null>(null)
+  authSubject$ = new BehaviorSubject<iAccessdata | null>(null)
   //subject in cui ho i dati utente che mi arrivano dal server
 
   //per avere solo user senza access data

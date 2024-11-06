@@ -18,14 +18,14 @@
           <mat-form-field appearance="outline">
             <mat-label for="name">Nome</mat-label>
             <input matInput id="name" formControlName="name" required>
-            <mat-error *ngIf="isInValidTouched('name')">Devi inserire il nome</mat-error>
+            <mat-error *ngIf="isInValidTouched('name')">Inserisci il nome</mat-error>
           </mat-form-field>
 
           <!-- Campo Cognome -->
           <mat-form-field appearance="outline">
             <mat-label for="surname">Cognome</mat-label>
             <input matInput id="surname" formControlName="surname" required>
-            <mat-error *ngIf="isInValidTouched('surname')">Devi inserire il cognome</mat-error>
+            <mat-error *ngIf="isInValidTouched('surname')">Inserisci il cognome</mat-error>
           </mat-form-field>
         </div>
 
@@ -40,7 +40,7 @@
         <mat-form-field appearance="outline">
           <mat-label for="password">Password</mat-label>
           <input matInput id="password" formControlName="password" required type="password">
-          <mat-error *ngIf="isInValidTouched('password')">Devi inserire una password</mat-error>
+          <mat-error *ngIf="isInValidTouched('password')">Inserisci una password</mat-error>
         </mat-form-field>
 
         <!-- Pulsante Submit -->
@@ -50,6 +50,9 @@
 
       <div class="success" *ngIf="registerok">
         <p>La registrazione è andata a buon fine!</p> <mat-icon class="check">check_circle</mat-icon>
+      </div>
+      <div class="failed" *ngIf="registerfalse">
+        <p>La registrazione non è andata a buon fine</p> <mat-icon class="check">check_circle</mat-icon>
       </div>
 
     </div>
