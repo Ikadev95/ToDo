@@ -1,0 +1,11 @@
+
+  <mat-sidenav-container class="example-container" *ngIf="logged">
+    <mat-sidenav #sidenav mode="side" >
+      Sidenav content
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+    <mat-icon (click)="sidenav.toggle()">open_in_full</mat-icon>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+

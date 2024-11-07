@@ -4,33 +4,34 @@
       <img src="intro.jpg" width="100%">
     </div>
 
-<div class="col-12 col-md-6 mt-4 form">
-  <form [formGroup]="form" (ngSubmit)="login()">
+    <div class="col-12 col-md-6 mt-4 form">
+      <form [formGroup]="form" (ngSubmit)="login()">
 
-    <h1>Ciao! Benvenuto su ToDo 👋🏻</h1>
+        <h1>Ciao! Benvenuto su ToDo 👋🏻</h1>
 
-     <!-- Campo Email -->
-     <mat-form-field appearance="outline">
-      <mat-label for="email">E-mail</mat-label>
-      <input matInput id="email" formControlName="email" required>
-      <mat-error *ngIf="isInValidTouched('email')">Inserisci una email valida</mat-error>
-     </mat-form-field>
+        <!-- Campo Email -->
+        <mat-form-field appearance="outline">
+          <mat-label for="email">E-mail</mat-label>
+          <input matInput id="email" formControlName="email" required>
+          <mat-error *ngIf="isInValidTouched('email')">Inserisci una email valida</mat-error>
+        </mat-form-field>
 
-    <!-- Campo Password -->
-    <mat-form-field appearance="outline">
-       <mat-label for="password">Password</mat-label>
-       <input matInput id="password" formControlName="password" required type="password">
-       <mat-icon matSuffix>visibility</mat-icon>
-       <mat-error *ngIf="isInValidTouched('password')">Inserisci una password</mat-error>
-     </mat-form-field>
+        <!-- Campo Password -->
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Password</mat-label>
+          <input matInput id="password" formControlName="password" required type="password">
+          <mat-icon matSuffix>visibility</mat-icon>
+          <mat-error *ngIf="isInValidTouched('password')">Inserisci una password</mat-error>
+        </mat-form-field>
 
-    <button mat-flat-button type="submit">Login</button>
+        <button mat-flat-button type="submit">Login</button>
 
-    <p>Non hai ancora un account? <a routerLink="register">Registrati</a> </p>
+        <p>Non hai ancora un account? <a routerLink="register">Registrati</a> </p>
 
-  </form>
+      </form>
 
-</div>
+
+    </div>
 
   </div>
 </main>
