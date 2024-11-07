@@ -13,6 +13,7 @@ export class RegisterComponent {
   form: FormGroup;
   registerok = false;
   registerfalse = false;
+  passwordVisible = false;
 
   constructor(
     private authSvc: AuthsrvService,
@@ -67,5 +68,9 @@ export class RegisterComponent {
 
   isInValidTouched(fieldName: string) {
     return !this.isValid(fieldName) && this.isTouched(fieldName);
+  }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible; // Alterna visibilità
   }
 }

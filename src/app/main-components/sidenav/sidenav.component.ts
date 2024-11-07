@@ -2,6 +2,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, inject} from '@angular/core';
 import { AuthsrvService } from '../../auth/authsrv.service';
 import { map, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,7 +11,7 @@ import { map, tap } from 'rxjs';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor(private authSvc: AuthsrvService){}
+  constructor(private authSvc: AuthsrvService, private router:Router){}
 
   logged!: boolean
 
@@ -23,4 +24,8 @@ export class SidenavComponent implements OnInit {
      ).subscribe()
   }
 
+  logout(){
+    this.authSvc.logout()
+    this.router.navigate(['auth'])
+  }
 }

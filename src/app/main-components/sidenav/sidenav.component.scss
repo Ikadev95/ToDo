@@ -5,3 +5,23 @@ mat-sidenav-container{
 mat-icon{
   margin: 16px;
 }
+mat-sidenav{
+  max-width: 240px;
+  padding: 16px 0px 16px 20px;
+}
+li{
+  list-style: none;
+  padding-block: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  padding-inline: 8px;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+a{
+  cursor:pointer;
+  text-decoration: none;
+  color: inherit;
+}

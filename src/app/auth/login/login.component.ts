@@ -12,6 +12,7 @@ import { iLoginRequest } from '../interfaces/i-login-request';
 export class LoginComponent {
 
   form: FormGroup;
+  passwordVisible = false;
 
   constructor(
     private authSvc: AuthsrvService,
@@ -31,7 +32,7 @@ export class LoginComponent {
         {
           next: (data) => {
             console.log('login effettuato con successo')
-            this.router.navigate([''])
+            this.router.navigate(['home'])
           },
           error:(data) => {
             console.log('errore login')
@@ -56,4 +57,9 @@ export class LoginComponent {
   isInValidTouched(fieldName: string) {
     return !this.isValid(fieldName) && this.isTouched(fieldName);
   }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible; // Alterna visibilità
+  }
+
 }

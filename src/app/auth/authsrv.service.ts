@@ -56,7 +56,7 @@ export class AuthsrvService {
 
   logout(){
     this.authSubject$.next(null)
-    localStorage.removeItem('accesssData')
+    localStorage.removeItem('accessData')
     this.router.navigate(['login'])
   }
   autoLogout(expDate:Date){

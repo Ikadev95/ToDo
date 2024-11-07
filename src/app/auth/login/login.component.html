@@ -10,7 +10,7 @@
         <h1>Ciao! Benvenuto su ToDo 👋🏻</h1>
 
         <!-- Campo Email -->
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" >
           <mat-label for="email">E-mail</mat-label>
           <input matInput id="email" formControlName="email" required>
           <mat-error *ngIf="isInValidTouched('email')">Inserisci una email valida</mat-error>
@@ -19,10 +19,11 @@
         <!-- Campo Password -->
         <mat-form-field appearance="outline">
           <mat-label for="password">Password</mat-label>
-          <input matInput id="password" formControlName="password" required type="password">
-          <mat-icon matSuffix>visibility</mat-icon>
+          <input matInput id="password" formControlName="password" [type]="passwordVisible ? 'text' : 'password'" required>
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">{{ passwordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
           <mat-error *ngIf="isInValidTouched('password')">Inserisci una password</mat-error>
         </mat-form-field>
+
 
         <button mat-flat-button type="submit">Login</button>
 

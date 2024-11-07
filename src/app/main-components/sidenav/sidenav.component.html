@@ -1,7 +1,15 @@
-
-  <mat-sidenav-container class="example-container" *ngIf="logged">
+  <mat-sidenav-container *ngIf="logged">
     <mat-sidenav #sidenav mode="side" >
-      Sidenav content
+      <ul>
+        <li><a routerLink="">🏠 Home</a></li>
+        <li><a routerLink="">✅ Completati</a></li>
+        <li><a routerLink="">📆 Oggi</a></li>
+      </ul>
+
+      <ul>
+        <li><a (click)="logout()">Logout</a></li>
+      </ul>
+
     </mat-sidenav>
 
     <mat-sidenav-content>

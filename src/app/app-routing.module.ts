@@ -5,11 +5,11 @@ import { GuestGuard } from './auth/guards/guest.guard';
 
 const routes: Routes = [
   { path:'',
-    redirectTo: 'home',
+    redirectTo: 'auth',
     pathMatch: "full",
   },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), canActivate: [GuestGuard] },
-  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard] }];
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), canActivate: [GuestGuard], canActivateChild: [GuestGuard] },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard], canActivateChild: [AuthGuard] }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
