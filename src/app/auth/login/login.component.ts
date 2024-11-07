@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthsrvService } from '../authsrv.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { iLoginRequest } from '../i-login-request';
+import { iLoginRequest } from '../interfaces/i-login-request';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +31,7 @@ export class LoginComponent {
         {
           next: (data) => {
             console.log('login effettuato con successo')
+            this.router.navigate([''])
           },
           error:(data) => {
             console.log('errore login')
