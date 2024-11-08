@@ -1,7 +1,6 @@
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy, OnInit, inject} from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { AuthsrvService } from '../../auth/authsrv.service';
-import { map, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { iUser } from '../../auth/interfaces/i-user';
 
@@ -12,6 +11,7 @@ import { iUser } from '../../auth/interfaces/i-user';
 })
 export class SidenavComponent implements OnInit {
   user!:iUser
+  open:boolean = false
 
   constructor(private authSvc: AuthsrvService, private router:Router){
     this.authSvc.user$.pipe(
@@ -37,5 +37,8 @@ export class SidenavComponent implements OnInit {
   logout(){
     this.authSvc.logout()
     this.router.navigate(['auth'])
+  }
+  toggle(){
+    this.open = !this.open
   }
 }

@@ -1,4 +1,7 @@
 <div class="container-fluid m-3">
-  <h1>Ciao, {{user.nikname}} 🤩</h1>
-  <p> Oggi è {{day}}, {{today.getDate()}} {{month}} {{today.getFullYear()}}</p>
+  <h1>Ciao, {{ user.nikname }} 🤩</h1>
+  <p>Oggi è {{ day }}, {{ today.getDate() }} {{ month }} {{ today.getFullYear() }}</p>
+  <button class="add-task" (click)="openDialog()">
+    <mat-icon>add_circle</mat-icon> Crea un nuovo task
+  </button>
 </div>

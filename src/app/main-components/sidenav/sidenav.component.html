@@ -7,6 +7,9 @@
           <p>{{user.name}} {{user.surname}}</p>
         </div>
       </div>
+
+      <hr>
+
       <ul>
         <li><a routerLink="">🏠 Home</a></li>
         <li><a routerLink="">✅ Completati</a></li>
@@ -20,7 +23,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-    <mat-icon (click)="sidenav.toggle()">open_in_full</mat-icon>
+    <mat-icon (click)="sidenav.toggle(); toggle()"> {{open? 'close_fullscreen' : 'open_in_full'}}</mat-icon>
     </mat-sidenav-content>
   </mat-sidenav-container>
 

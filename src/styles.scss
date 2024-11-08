@@ -39,7 +39,8 @@ $ToDo-theme: mat.define-theme((
 html, body { height: 100%;background-color: #F6F5F6 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #F6F5F6;
-  height: fit-content
+  height: fit-content;
+  width:fit-content
 }
 .container{
   background-color: transparent;
@@ -52,3 +53,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 body{
   background-color: #F6F5F6;
 }
+

@@ -7,29 +7,37 @@ import { provideHttpClient, withInterceptors, } from '@angular/common/http';
 import { tokenInterceptor } from './auth/token.interceptor';
 import { SidenavComponent } from './main-components/sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-
-
+import { AddTodoComponent } from './main-components/add-todo/add-todo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
+    AddTodoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule
 
   ],
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient( withInterceptors([tokenInterceptor]))
+    provideHttpClient( withInterceptors([tokenInterceptor])),
+    MatNativeDateModule
   ],
   bootstrap: [AppComponent]
 })

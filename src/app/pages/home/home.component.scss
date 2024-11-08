@@ -1,0 +1,18 @@
+.add-task{
+  background-color: black;
+  color: white;
+  border-radius: 24px;
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 0;
+  width: 50vw;
+  max-width: 450px;
+  position: absolute;
+  bottom:16px;
+}
+
+.contianer-fluid{
+  position: relative;
+  width: calc(100vw - 56px);
+}

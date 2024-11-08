@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AuthsrvService } from '../../auth/authsrv.service';
 import { iUser } from '../../auth/interfaces/i-user';
 import { tap } from 'rxjs';
+import {Dialog} from '@angular/cdk/dialog';
+import { AddTodoComponent } from '../../main-components/add-todo/add-todo.component';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +11,7 @@ import { tap } from 'rxjs';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+  dialog = inject(Dialog);
 
   user!: iUser
   today!: Date
@@ -34,4 +37,9 @@ export class HomeComponent implements OnInit {
 
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddTodoComponent, {
+      minWidth: '400px',
+    })
+  }
 }
