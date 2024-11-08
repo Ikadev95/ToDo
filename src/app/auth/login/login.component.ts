@@ -59,7 +59,7 @@ export class LoginComponent {
   }
 
   togglePasswordVisibility() {
-    this.passwordVisible = !this.passwordVisible; // Alterna visibilità
+    this.passwordVisible = !this.passwordVisible;
   }
 
 }

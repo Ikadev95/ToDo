@@ -2,10 +2,12 @@
   "users": [
     {
       "email": "fegughi@gmail.com",
-      "password": "$2a$10$6DjSluJcip5lOBOtaGMIO.s1hG5s12wbwXvRvsJaBUzp47Q08Z0Hy",
+      "password": "$2a$10$NeeO6ljSOvFvGTT6PmG1FecKN5EwbyOqEk4s834pHzjfHr8se/.de",
       "name": "Federica",
       "surname": "Guglielmo",
+      "nikname": "Ikadev95",
       "id": 1
     }
-  ]
+  ],
+  "todos": []
 }

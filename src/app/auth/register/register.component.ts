@@ -23,6 +23,7 @@ export class RegisterComponent {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       surname: new FormControl('', [Validators.required]),
+      nikname: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     });
@@ -71,6 +72,6 @@ export class RegisterComponent {
   }
 
   togglePasswordVisibility() {
-    this.passwordVisible = !this.passwordVisible; // Alterna visibilità
+    this.passwordVisible = !this.passwordVisible;
   }
 }

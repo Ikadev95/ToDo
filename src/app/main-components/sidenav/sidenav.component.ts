@@ -3,6 +3,7 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit, inject} from '@angular/
 import { AuthsrvService } from '../../auth/authsrv.service';
 import { map, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { iUser } from '../../auth/interfaces/i-user';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,8 +11,17 @@ import { Router } from '@angular/router';
   styleUrl: './sidenav.component.scss'
 })
 export class SidenavComponent implements OnInit {
+  user!:iUser
 
-  constructor(private authSvc: AuthsrvService, private router:Router){}
+  constructor(private authSvc: AuthsrvService, private router:Router){
+    this.authSvc.user$.pipe(
+      tap( user => {
+        if(user)
+          this.user = user
+      }
+      )
+    ).subscribe()
+  }
 
   logged!: boolean
 

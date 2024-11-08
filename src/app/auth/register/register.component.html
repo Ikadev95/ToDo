@@ -29,6 +29,13 @@
           </mat-form-field>
         </div>
 
+        <!-- Campo Nikname -->
+            <mat-form-field appearance="outline">
+              <mat-label for="nikname">Nikname</mat-label>
+               <input matInput id="nikname" formControlName="nikname" required>
+               <mat-error *ngIf="isInValidTouched('nikname')">Inserisci il nikname</mat-error>
+            </mat-form-field>
+
         <!-- Campo Email -->
         <mat-form-field appearance="outline">
           <mat-label for="email">E-mail</mat-label>

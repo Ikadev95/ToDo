@@ -1,5 +1,12 @@
   <mat-sidenav-container *ngIf="logged">
     <mat-sidenav #sidenav mode="side" >
+      <div class="user-container" routerLink="user">
+        <img class="user-image" src="https://i.imgur.com/Bpz9hzt.jpg" alt="user-image">
+        <div class="">
+          <h5>{{user.nikname}}</h5>
+          <p>{{user.name}} {{user.surname}}</p>
+        </div>
+      </div>
       <ul>
         <li><a routerLink="">🏠 Home</a></li>
         <li><a routerLink="">✅ Completati</a></li>
