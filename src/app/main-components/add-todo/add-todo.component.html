@@ -1,21 +1,35 @@
-<mat-icon (click)="dialogRef.close()">close</mat-icon>
-<h3>Inserisci</h3>
+<div class="d-flex justify-content-between mb-3">
+  <h4>Crea un nuovo task</h4>
+  <mat-icon (click)="dialogRef.close()">close</mat-icon>
+</div>
+
+
 <form [formGroup]="form">
 
   <!-- Campo Task -->
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" class="mb-1">
     <mat-label>Task</mat-label>
     <input matInput formControlName="task" required>
     <mat-error *ngIf="isInValidTouched('task')">Inserisci il task</mat-error>
   </mat-form-field>
 
   <!-- Campo Date Picker -->
-  <mat-form-field appearance="outline">
-    <mat-label>Choose a date</mat-label>
+  <mat-form-field appearance="outline" class="mb-1">
+    <mat-label>Scegli una data</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="date">
-    <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+    <!-- Campo Select List -->
+  <mat-form-field appearance="outline" class="mb-2">
+    <mat-label>Seleziona una lista</mat-label>
+    <mat-select formControlName="list">
+      <mat-option>None</mat-option>
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <!-- Bottone di Salvataggio -->
