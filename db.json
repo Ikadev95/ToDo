@@ -9,5 +9,14 @@
       "id": 1
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "task": "programming",
+      "date": "2024-11-09T23:00:00.000Z",
+      "list": "option1",
+      "completed": false,
+      "userId": 1,
+      "id": 1
+    }
+  ]
 }
