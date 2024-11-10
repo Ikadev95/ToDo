@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   days = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato']
   months = ['Gennaio', 'Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre']
   result! : Partial<iTodo>
+  todos!: iTodo[]
 
   constructor(private authSrv : AuthsrvService, private todoSvc : TodoService){
     this.authSrv.user$.pipe(
@@ -38,9 +39,14 @@ export class HomeComponent implements OnInit {
     this.day = this.days[this.today.getDay()]
     this.month = this.months[this.today.getMonth()]
 
-    this.todoSvc.todosSubject$.subscribe(
+ /*    this.todoSvc.todosSubject$.subscribe(
       todos => console.log(todos)
-    );
+    ); */
+
+    this.todoSvc.getTodosByUser(this.user.id).subscribe(todos => {
+      this.todos = todos;
+      console.log("Todos dell'utente:", this.todos);
+    });
 
   }
 

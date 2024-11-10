@@ -1,7 +1,7 @@
 import { iUser } from './../auth/interfaces/i-user';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, filter, map, tap } from 'rxjs';
 import { iTodo } from '../interfaces/i-todo';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 export class TodoService {
 
   todosSubject$ = new BehaviorSubject<iTodo[] | null>(null)
-
-
 
   todosUrl:string = environment.todosUrl
 
@@ -36,6 +34,13 @@ export class TodoService {
         }
       })
     )
+  }
+
+  getTodosByUser(userId: number) {
+    return this.todosSubject$.pipe(
+      filter(todos => todos !== null), // Attendi finché `todos` non è disponibile
+      map(todos => todos!.filter(todo => todo.userId === userId))
+    );
   }
 
 
