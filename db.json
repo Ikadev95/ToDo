@@ -7,6 +7,14 @@
       "surname": "Guglielmo",
       "nikname": "Ikadev95",
       "id": 1
+    },
+    {
+      "email": "pippo@gmail.com",
+      "password": "$2a$10$5xeLnFpWi6BpkfsoRfOiguHHeU.sWg5amp4lbmhSXtWhJePIlk.mq",
+      "name": "pippo",
+      "surname": "pippo",
+      "nikname": "superPippo",
+      "id": 2
     }
   ],
   "todos": [
@@ -17,6 +25,38 @@
       "completed": false,
       "userId": 1,
       "id": 1
+    },
+    {
+      "task": "task1",
+      "date": "2024-11-11T23:00:00.000Z",
+      "list": "option1",
+      "completed": false,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "task": "taskpippo",
+      "date": "2024-11-11T23:00:00.000Z",
+      "list": "option1",
+      "completed": false,
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "task": "prova",
+      "date": "2024-11-11T23:00:00.000Z",
+      "list": "option1",
+      "completed": false,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "task": "prova 5",
+      "date": "2024-11-11T23:00:00.000Z",
+      "list": "option1",
+      "completed": false,
+      "userId": 2,
+      "id": 5
     }
   ]
 }

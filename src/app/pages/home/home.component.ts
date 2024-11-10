@@ -38,6 +38,10 @@ export class HomeComponent implements OnInit {
     this.day = this.days[this.today.getDay()]
     this.month = this.months[this.today.getMonth()]
 
+    this.todoSvc.todosSubject$.subscribe(
+      todos => console.log(todos)
+    );
+
   }
 
   openDialog(): void {
