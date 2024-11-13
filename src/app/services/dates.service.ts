@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DatesService {
 
+  today = new Date()
   days = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato']
   months = ['Gennaio', 'Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre']
 
@@ -12,6 +13,7 @@ export class DatesService {
 
   convertDateForTodo(date: any) {
     console.log(date);
+    let result = "";
 
     // Converti 'date' in un oggetto Date se è una stringa
     const dateObj = typeof date === 'string' ? new Date(date) : date;
@@ -21,12 +23,31 @@ export class DatesService {
       console.error('Data non valida:', date);
       return null;
     }
-    let day = dateObj.getDate()
-    let month = this.months[dateObj.getMonth()];
-    let result = day + " " + month.substring(0, 3) ;
+
+    const isToday =
+      dateObj.getDate() === this.today.getDate() &&
+      dateObj.getMonth() === this.today.getMonth() &&
+      dateObj.getFullYear() === this.today.getFullYear();
+
+    const isTomorrow =
+    dateObj.getDate() === this.today.getDate() +1  &&
+    dateObj.getMonth() === this.today.getMonth() &&
+    dateObj.getFullYear() === this.today.getFullYear();
+
+    if (isToday) {
+      result = "Oggi";
+    }
+    else if(isTomorrow){
+      result = "Domani"
+    }
+    else {
+      let day = dateObj.getDate();
+      let month = this.months[dateObj.getMonth()];
+      result = day + " " + month.substring(0, 3);
+    }
+
     return result;
   }
-
 
 
 }
