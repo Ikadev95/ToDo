@@ -4,6 +4,6 @@ userName: any
   task:string
   completed: boolean
   list:string
-  time:Date
+  date:Date
   userId:number
 }
