@@ -1,8 +1,9 @@
 export interface iTodo {
+userName: any
   id:number
-  todo:string
+  task:string
   completed: boolean
-  list?:string
-  time?:Date
+  list:string
+  time:Date
   userId:number
 }

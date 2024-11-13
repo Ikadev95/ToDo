@@ -1,0 +1,20 @@
+<div class="Item shadow">
+  <div class="itemCont" >
+      <div class="itemContainer">
+        <input type="checkbox" [(ngModel)]="todo.completed" id="todo" class="checkbox" />
+        <label class="px-1" for="todo"> {{todo.task}}</label>
+      </div>
+  </div>
+  <div class="d-flex gap-2 align-items-center">
+    <mat-chip>
+      {{todo.list}}
+    </mat-chip>
+    <mat-chip>
+
+    </mat-chip>
+  <!--   <div class="complete rounded-circle" [ngClass]="{'colorCompleted': todo.completed, 'colorIncompleted': !todo.completed}"></div> -->
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+</div>

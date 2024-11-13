@@ -16,12 +16,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { SingleTodoComponent } from './shared/single-todo/single-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
-    AddTodoComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,

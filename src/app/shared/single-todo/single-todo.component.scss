@@ -1,0 +1,43 @@
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #979797;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+.Item{
+  background-color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  justify-content: space-between;
+  height: 100%;
+}
+.itemContainer{
+  display: flex;
+  align-items: center;
+
+}
+.itemCont{
+  flex-direction: column;
+  flex-shrink: 4;
+}
+.description{
+  margin-left: 32px;
+}
+.colorCompleted{
+  background-color:  rgb(92, 181, 92);
+}
+.colorIncompleted{
+  background-color:rgb(242, 102, 102);
+}
+.complete{
+  width: 20px;
+  height: 20px;
+}
+label{
+  flex-shrink: 4;
+}
+
