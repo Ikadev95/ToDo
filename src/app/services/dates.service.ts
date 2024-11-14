@@ -11,8 +11,7 @@ export class DatesService {
 
   constructor() { }
 
-  convertDateForTodo(date: any) {
-    console.log(date);
+  convertDateForTodo(date: Date) {
     let result = "";
 
     // Converti 'date' in un oggetto Date se è una stringa

@@ -5,6 +5,7 @@ import { BehaviorSubject, filter, map, tap } from 'rxjs';
 import { iTodo } from '../interfaces/i-todo';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthsrvService } from '../auth/authsrv.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,19 @@ export class TodoService {
 
   todosUrl:string = environment.todosUrl
 
-  constructor(private http:HttpClient, private router:Router) {
-    this.getAllTodos().subscribe()
-  }
+  user!: iUser
 
-  private getAllTodos() {
-    return this.http.get<iTodo[]>(this.todosUrl).pipe(
-      tap(todos => this.todosSubject$.next(todos))
-    );
+  constructor(private http: HttpClient, private router: Router, private authSvc: AuthsrvService) {
+    this.authSvc.user$.pipe(
+      tap(user => {
+        if (user) {
+          this.user = user;
+          this.getTodosByIdUser(this.user.id).subscribe();
+        }
+      })
+    ).subscribe();
+
+    this.getTodosByIdUser(this.user.id).subscribe()
   }
 
   postTodo(todo:Partial<iTodo>){
@@ -36,12 +42,12 @@ export class TodoService {
     )
   }
 
-  getTodosByUser(userId: number) {
-    return this.todosSubject$.pipe(
-      filter(todos => todos !== null), // Attendi finché `todos` non è disponibile
-      map(todos => todos!.filter(todo => todo.userId === userId))
+  getTodosByIdUser(userId: number) {
+    return this.http.get<iTodo[]>(`${this.todosUrl}?userId=${userId}`).pipe(
+      tap(todos => this.todosSubject$.next(todos))
     );
   }
+
 
 
 }

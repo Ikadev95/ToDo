@@ -34,16 +34,13 @@ export class HomeComponent implements OnInit {
     ).subscribe()
   }
   ngOnInit(): void {
+
     this.today = new Date()
-    console.log(this.today)
     this.day = this.days[this.today.getDay()]
     this.month = this.months[this.today.getMonth()]
 
- /*    this.todoSvc.todosSubject$.subscribe(
-      todos => console.log(todos)
-    ); */
-
-    this.todoSvc.getTodosByUser(this.user.id).subscribe(todos => {
+    this.todoSvc.todosSubject$.subscribe(todos => {
+      if(todos)
       this.todos = todos;
       console.log("Todos dell'utente:", this.todos);
     });
