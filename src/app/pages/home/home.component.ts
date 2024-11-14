@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     this.todoSvc.todosSubject$.subscribe(todos => {
       if(todos)
       this.todos = todos;
-      console.log("Todos dell'utente:", this.todos);
+     console.log("Todos dell'utente:", this.todos);
     });
 
   }

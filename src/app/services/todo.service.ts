@@ -1,7 +1,7 @@
 import { iUser } from './../auth/interfaces/i-user';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, map, tap } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 import { iTodo } from '../interfaces/i-todo';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -29,7 +29,9 @@ export class TodoService {
     ).subscribe();
 
     this.getTodosByIdUser(this.user.id).subscribe()
+
   }
+
 
   postTodo(todo:Partial<iTodo>){
     return this.http.post<iTodo>(this.todosUrl,todo).pipe(
@@ -48,6 +50,20 @@ export class TodoService {
     );
   }
 
-
-
+  updateTodoStatus(updatedTodo: iTodo) {
+    return this.http.patch<iTodo>(`${this.todosUrl}/${updatedTodo.id}`, updatedTodo).pipe(
+      tap(updated => {
+        const currentTodos = this.todosSubject$.getValue();
+        if (currentTodos) {
+          const index = currentTodos.findIndex(todo => todo.id === updated.id);
+          if (index !== -1) {
+            currentTodos[index] = updated;
+            this.todosSubject$.next([...currentTodos]);
+          }
+        }
+      })
+    );
+  }
 }
+
+
