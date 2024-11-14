@@ -35,9 +35,10 @@ export class HomeComponent implements OnInit {
     this.today = this.datesSvc.getTodayFullDate()
 
     this.todoSvc.todosSubject$.subscribe(todos => {
-      if(todos)
-      this.todos = todos;
-     console.log("Todos dell'utente:", this.todos);
+      if(todos){
+       let filtered =  todos.filter( todo => todo.completed === false)
+       this.todos = filtered
+      }
     });
 
   }

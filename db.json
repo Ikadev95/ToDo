@@ -62,7 +62,7 @@
       "task": "task",
       "date": "2024-11-13T23:00:00.000Z",
       "list": "option1",
-      "completed": false,
+      "completed": true,
       "userId": 1,
       "id": 6
     },
