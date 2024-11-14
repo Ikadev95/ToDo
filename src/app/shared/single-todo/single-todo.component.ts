@@ -12,6 +12,7 @@ export class SingleTodoComponent implements OnInit{
   @Input() todo!:iTodo
 
   day!: string
+  color!:number
 
   constructor(private dateSvc : DatesService, private todoSvc:TodoService){}
   ngOnInit(): void {
@@ -19,6 +20,11 @@ export class SingleTodoComponent implements OnInit{
     if (prova){
       this.day = prova
     }
+
+    if (this.day === "Domani"){this.color = 2}
+    else if(this.day === "Oggi") {this.color = 1}
+    else if (this.dateSvc.isDatePast(this.day)){this.color = 3}
+    else {this.color = 0}
   }
 
   toggleCompleted(): void {

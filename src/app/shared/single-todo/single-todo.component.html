@@ -6,13 +6,14 @@
       </div>
   </div>
   <div class="d-flex gap-2 align-items-center">
-    <mat-chip>
-      {{todo.list}}
-    </mat-chip>
-      {{day}}
+  <p class="chip" [ngClass]="{
+    'today': color === 1,
+    'tomorrow': color === 2,
+    'general': color === 0,
+    'old': color === 3
+  }">{{day}}</p>
 
-    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
       <mat-icon>more_vert</mat-icon>
-    </button>
+
   </div>
 </div>

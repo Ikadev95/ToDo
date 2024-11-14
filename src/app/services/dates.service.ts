@@ -55,4 +55,23 @@ export class DatesService {
     return  `${day} ${this.today.getDate()} ${month} ${this.today.getFullYear()}`
   }
 
+  isDatePast(dateStr: string): boolean {
+    const currentYear = this.today.getFullYear();
+
+    // Dividi la data in giorno e mese
+    const [dayStr, monthAbbr] = dateStr.split(' ');
+    const day = parseInt(dayStr);
+    const monthIndex = this.months.findIndex(month => month.substring(0, 3).toLowerCase() === monthAbbr.toLowerCase());
+
+    if (isNaN(day) || monthIndex === -1) {
+      console.error("Formato data non valido");
+      return false;
+    }
+
+    const inputDate = new Date(currentYear, monthIndex, day);
+
+    // Confronta la data di input con la data attuale
+    return inputDate < this.today;
+  }
+
 }

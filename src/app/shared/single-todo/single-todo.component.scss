@@ -59,8 +59,28 @@ input[type="checkbox"] {
   margin-right: 12px;
   background-color: rgb(21, 21, 21);
 }
+.chip{
+  background-color: antiquewhite;
+  padding: 4px 8px;
+  margin: 0;
+  border-radius: 4px;
+  font-size: 14px;
+}
 
+.today {
+  color: #c1706f;
+  background-color: #FEEDED;
+}
 
-
-
-
+.tomorrow {
+  color: #cbab6f;
+  background-color: #FEF7E9;
+}
+.general{
+  color: #81b395;
+  background-color: #EBF9F1 ;
+}
+.old{
+  color:black;
+  background-color: rgb(242, 242, 242);
+}
