@@ -16,7 +16,7 @@
   <!-- Campo Date Picker -->
   <mat-form-field appearance="outline" class="mb-1">
     <mat-label>Scegli una data</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="date">
+    <input matInput [matDatepicker]="picker" formControlName="date" [min]="minDate">
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

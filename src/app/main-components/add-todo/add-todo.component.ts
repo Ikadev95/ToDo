@@ -10,8 +10,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddTodoComponent implements OnInit {
   dialogRef = inject(DialogRef);
   form!: FormGroup
+  minDate: Date;
 
-  constructor(){}
+  constructor(){
+    this.minDate = new Date();
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
