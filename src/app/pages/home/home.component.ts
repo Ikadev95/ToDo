@@ -6,6 +6,7 @@ import { tap } from 'rxjs';
 import { Dialog } from '@angular/cdk/dialog';
 import { AddTodoComponent } from '../../main-components/add-todo/add-todo.component';
 import { TodoService } from '../../services/todo.service';
+import { DatesService } from '../../services/dates.service';
 
 @Component({
   selector: 'app-home',
@@ -15,16 +16,12 @@ import { TodoService } from '../../services/todo.service';
 export class HomeComponent implements OnInit {
   dialog = inject(Dialog);
 
+  today!: string
   user!: iUser
-  today!: Date
-  day!: string
-  month!:string
-  days = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato']
-  months = ['Gennaio', 'Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre']
   result! : Partial<iTodo>
   todos!: iTodo[]
 
-  constructor(private authSrv : AuthsrvService, private todoSvc : TodoService){
+  constructor(private authSrv : AuthsrvService, private todoSvc : TodoService, private datesSvc : DatesService){
     this.authSrv.user$.pipe(
       tap( user => {
         if(user)
@@ -35,9 +32,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    this.today = new Date()
-    this.day = this.days[this.today.getDay()]
-    this.month = this.months[this.today.getMonth()]
+    this.today = this.datesSvc.getTodayFullDate()
 
     this.todoSvc.todosSubject$.subscribe(todos => {
       if(todos)

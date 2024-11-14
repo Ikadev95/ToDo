@@ -48,5 +48,11 @@ export class DatesService {
     return result;
   }
 
+  getTodayFullDate(){
+    let month = this.months[this.today.getMonth()]
+    let day = this.days[this.today.getDay()]
+
+    return  `${day} ${this.today.getDate()} ${month} ${this.today.getFullYear()}`
+  }
 
 }
