@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatIcon } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -19,8 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
     FormsModule,
     MatChipsModule,
     MatIcon,
-    MatButtonModule,
-    MatMenuModule
+    MatButtonModule
   ],
   exports:[
     SingleTodoComponent,
