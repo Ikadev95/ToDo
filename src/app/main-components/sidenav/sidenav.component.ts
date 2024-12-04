@@ -41,4 +41,6 @@ export class SidenavComponent implements OnInit {
   toggle(){
     this.open = !this.open
   }
+
+
 }

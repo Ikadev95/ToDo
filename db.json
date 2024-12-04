@@ -70,7 +70,7 @@
       "task": "angular",
       "date": "2024-11-13T23:00:00.000Z",
       "list": "option1",
-      "completed": false,
+      "completed": true,
       "userId": 1,
       "id": 7
     },
@@ -138,6 +138,14 @@
       "completed": false,
       "userId": 1,
       "id": 17
+    },
+    {
+      "task": "ciao",
+      "date": "2024-12-04T23:00:00.000Z",
+      "list": "option1",
+      "completed": false,
+      "userId": 1,
+      "id": 18
     }
   ]
 }
